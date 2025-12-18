@@ -1,0 +1,836 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Boost Your Tow Truck Business on Google Maps - TowMaps.ca</title>
+    <style>
+        body {
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            background-color: #ffffff;
+            margin: 0;
+            padding: 0;
+            color: #ffffff;
+            scroll-behavior: smooth;
+        }
+        header {
+            background: #001f3f;
+            padding: 20px;
+            text-align: left;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        header h1 {
+            font-size: 28px;
+            margin: 0;
+            color: #ffffff;
+        }
+        nav {
+            display: flex;
+            align-items: center;
+        }
+        nav a {
+            margin: 0 15px;
+            text-decoration: none;
+            color: #ffffff;
+            font-size: 17px;
+            transition: color 0.3s;
+        }
+        nav a:hover {
+            color: #00c3a5;
+        }
+        .consult-button {
+            background: #00c3a5;
+            color: #ffffff;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background 0.3s;
+            margin-left: 20px;
+        }
+        .consult-button:hover {
+            background: #00a387;
+        }
+        .hero {
+            background: #001f3f;
+            color: #ffffff;
+            text-align: left;
+            padding: 100px 20px;
+            position: relative;
+            overflow: hidden;
+        }
+        .hero::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 50%;
+            height: 100%;
+            background: linear-gradient(to bottom left, #001f3f, transparent);
+            transform: skewX(-20deg);
+            transform-origin: top right;
+        }
+        .hero-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+        .hero h2 {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+        .hero p {
+            font-size: 20px;
+            margin-bottom: 40px;
+            max-width: 600px;
+        }
+        .hero button {
+            background: #00c3a5;
+            color: #ffffff;
+            border: none;
+            border-radius: 5px;
+            padding: 15px 30px;
+            font-size: 18px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        .hero button:hover {
+            background: #00a387;
+        }
+        .hero-stats {
+            display: flex;
+            justify-content: flex-start;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        .stat {
+            text-align: left;
+        }
+        .stat h3 {
+            font-size: 32px;
+            margin-bottom: 5px;
+        }
+        .stat p {
+            font-size: 16px;
+        }
+        .trusted {
+            text-align: left;
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+        .brands {
+            display: flex;
+            justify-content: flex-start;
+            gap: 30px;
+        }
+        .brand-logo img {
+            height: 40px;
+            width: auto;
+        }
+        .section {
+            padding: 60px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+            color: #333333;
+            background: #ffffff;
+        }
+        .services h3 {
+            font-size: 36px;
+            text-align: left;
+            margin-bottom: 10px;
+        }
+        .services p {
+            font-size: 18px;
+            color: #666666;
+            margin-bottom: 40px;
+        }
+        .service-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1px;
+            background: #e0e0e0;
+        }
+        .service-item {
+            background: #ffffff;
+            padding: 20px;
+            border-right: 1px solid #e0e0e0;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        .service-item:last-child, .service-item:nth-child(4), .service-item:nth-child(8) {
+            border-right: none;
+        }
+        .service-item h4 {
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+        .service-item p {
+            color: #666666;
+            font-size: 16px;
+        }
+        .service-labels {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 20px;
+            margin-top: 40px;
+            color: #666666;
+            font-size: 16px;
+            text-align: center;
+        }
+        .process {
+            background: #ffffff;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+        }
+        .process-left {
+            flex: 1;
+            padding-right: 40px;
+        }
+        .process h3 {
+            font-size: 36px;
+            margin-bottom: 10px;
+        }
+        .process p {
+            font-size: 18px;
+            color: #666666;
+            margin-bottom: 40px;
+        }
+        .step {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 20px;
+        }
+        .step-number {
+            background: #00c3a5;
+            color: #ffffff;
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            margin-right: 20px;
+            flex-shrink: 0;
+        }
+        .step-arrow {
+            color: #00c3a5;
+            font-size: 24px;
+            margin: 0 10px;
+            opacity: 0;
+            animation: fadeInDown 0.5s ease-out forwards;
+        }
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        .step-arrow.visible {
+            animation-delay: calc(var(--index) * 0.2s);
+        }
+        .step-content h4 {
+            font-size: 20px;
+            margin-bottom: 5px;
+        }
+        .step-content p {
+            color: #666666;
+            font-size: 16px;
+        }
+        .process-right {
+            flex: 1;
+            background: #666666;
+            padding: 20px;
+            border-radius: 5px;
+            color: #ffffff;
+        }
+        .process-right img {
+            width: 100%;
+            height: auto;
+            margin-bottom: 20px;
+        }
+        .process-right h4 {
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+        .process-right p {
+            font-size: 16px;
+            line-height: 1.5;
+        }
+        .clients {
+            background: #f8f8f8;
+            text-align: center;
+        }
+        .clients h3 {
+            font-size: 36px;
+            color: #333333;
+            margin-bottom: 10px;
+        }
+        .clients p {
+            font-size: 18px;
+            color: #666666;
+            margin-bottom: 40px;
+        }
+        .client-logos {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+        }
+        .client-logo {
+            width: 150px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #333333;
+            font-size: 24px;
+            font-weight: bold;
+        }
+        .certifications {
+            background: #f8f8f8;
+            text-align: center;
+        }
+        .certifications h3 {
+            font-size: 28px;
+            margin-bottom: 30px;
+            color: #333333;
+        }
+        .cert-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+        .cert-item {
+            background: #ffffff;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            text-align: center;
+            transition: transform 0.3s;
+        }
+        .cert-item:hover {
+            transform: translateY(-5px);
+        }
+        .cert-item img {
+            width: 80px;
+            height: 80px;
+            margin-bottom: 15px;
+        }
+        .cert-item p {
+            font-size: 18px;
+            font-weight: bold;
+            color: #333333;
+        }
+        .testimonials {
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            padding: 30px;
+        }
+        .testimonials h3 {
+            font-size: 28px;
+            text-align: center;
+            margin-bottom: 30px;
+            color: #333333;
+        }
+        .review {
+            display: flex;
+            align-items: flex-start;
+            border-bottom: 1px solid #e0e0e0;
+            padding: 20px 0;
+        }
+        .review:last-child {
+            border-bottom: none;
+        }
+        .review-placeholder {
+            width: 80px;
+            height: 80px;
+            margin-right: 20px;
+            background: #f8f8f8;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            color: #666666;
+            text-align: center;
+        }
+        .review-content {
+            flex: 1;
+        }
+        .review h4 {
+            font-size: 20px;
+            margin-bottom: 10px;
+            color: #333333;
+        }
+        .review p {
+            color: #666666;
+            font-style: italic;
+            font-size: 16px;
+            line-height: 1.5;
+        }
+        .review .author {
+            text-align: right;
+            font-weight: bold;
+            color: #333333;
+            margin-top: 10px;
+            font-size: 16px;
+        }
+        .faq {
+            padding: 60px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+            color: #333333;
+        }
+        .faq h3 {
+            font-size: 36px;
+            margin-bottom: 40px;
+        }
+        .faq-item {
+            margin-bottom: 20px;
+        }
+        .faq-item h4 {
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+        .faq-item p {
+            color: #666666;
+            font-size: 16px;
+        }
+        .form-section {
+            background: #f8f8f8;
+            position: relative;
+        }
+        .container {
+            background: #ffffff;
+            border-radius: 10px;
+            padding: 30px;
+            max-width: 500px;
+            width: 100%;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+        .container h3 {
+            font-size: 24px;
+            text-align: center;
+            margin-bottom: 10px;
+            color: #333333;
+        }
+        .container p {
+            text-align: center;
+            color: #666666;
+            margin-bottom: 20px;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+        label {
+            font-size: 17px;
+            color: #333333;
+            margin-top: 15px;
+        }
+        input, textarea {
+            font-size: 17px;
+            padding: 12px;
+            border: 1px solid #e0e0e0;
+            border-radius: 5px;
+            margin-top: 5px;
+            background: #ffffff;
+            transition: border-color 0.3s;
+        }
+        input:focus, textarea:focus {
+            border-color: #00c3a5;
+            outline: none;
+        }
+        button {
+            margin-top: 20px;
+            background: #00c3a5;
+            color: #ffffff;
+            border: none;
+            border-radius: 5px;
+            padding: 15px;
+            font-size: 17px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        button:hover {
+            background: #00a387;
+        }
+        footer {
+            background: #ffffff;
+            padding: 20px;
+            text-align: center;
+            border-top: 1px solid #e0e0e0;
+            font-size: 14px;
+            color: #666666;
+        }
+        #cookie-banner {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background: #f8f8f8;
+            padding: 15px;
+            text-align: center;
+            box-shadow: 0 -2px 4px rgba(0,0,0,0.1);
+            z-index: 1000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+        }
+        #cookie-banner p {
+            margin: 0;
+            color: #333333;
+        }
+        #cookie-banner button {
+            background: #00c3a5;
+            color: #ffffff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        #cookie-banner button:hover {
+            background: #00a387;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>TowMaps</h1>
+        <nav>
+            <a href="#services">Our Services</a>
+            <a href="#process">How We Deliver</a>
+            <a href="#clients">Our Clients</a>
+            <a href="#certifications">Certifications</a>
+            <a href="#testimonials">Testimonials</a>
+            <a href="#faq">FAQ</a>
+            <a href="#contact">Contact</a>
+            <button class="consult-button" onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth'});">Get a Free Consultation Now</button>
+        </nav>
+    </header>
+    
+    <section class="hero">
+        <div class="hero-content">
+            <h2>Google Maps Optimization Services - Rank No. 1 In Search Results</h2>
+            <p>Get top-tier Google Maps optimization and strategy services for enhanced search rankings and maximized visibility. I will work with you to deliver a comprehensive suite of solutions tailored to meet your tow truck business needs and elevate your online presence.</p>
+            <button onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth'});">Get a Consultation Now</button>
+            <div class="hero-stats">
+                <div class="stat">
+                    <h3>100+</h3>
+                    <p>Clients Served</p>
+                </div>
+                <div class="stat">
+                    <h3>200+</h3>
+                    <p>Total Projects Completed</p>
+                </div>
+                <div class="stat">
+                    <h3>10+</h3>
+                    <p>Industries Served</p>
+                </div>
+            </div>
+            <div class="trusted">Trusted by Leading Brands</div>
+            <div class="brands">
+                <div class="brand-logo"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/45/AAA_logo_2018.svg/200px-AAA_logo_2018.svg.png" alt="AAA"></div>
+                <div class="brand-logo"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/89/Canadian_Automobile_Association_Logo.svg/200px-Canadian_Automobile_Association_Logo.svg.png" alt="CAA"></div>
+                <div class="brand-logo"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/86/Pep_Boys_logo.svg/200px-Pep_Boys_logo.svg.png" alt="Pep Boys"></div>
+                <div class="brand-logo"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/AutoZone_logo.svg/200px-AutoZone_logo.svg.png" alt="AutoZone"></div>
+                <div class="brand-logo"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2d/Michelin_logo.svg/200px-Michelin_logo.svg.png" alt="Michelin"></div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="services" class="section services">
+        <h3>TowMaps Google Maps Optimization Services</h3>
+        <p>Elevate your online presence with our comprehensive suite of optimization services. From strategic leadership to in-depth audits and cutting-edge content strategies, our solutions are designed to enhance your visibility and drive measurable growth.</p>
+        <div class="service-grid">
+            <div class="service-item">
+                <h4>Optimization Consulting</h4>
+                <p>Elevate your business with strategic leadership and advisory for unparalleled success.</p>
+            </div>
+            <div class="service-item">
+                <h4>Audits</h4>
+                <p>Refine your online presence with comprehensive diagnostics for all key aspects.</p>
+            </div>
+            <div class="service-item">
+                <h4>Strategy</h4>
+                <p>Strategically increase quality organic traffic to your digital properties.</p>
+            </div>
+            <div class="service-item">
+                <h4>Keyword Research</h4>
+                <p>Identify and implement strategic keyword sets to drive quality traffic and content alignment.</p>
+            </div>
+            <div class="service-item">
+                <h4>Technical Optimization</h4>
+                <p>Maximize visibility by meeting modern standards on your website.</p>
+            </div>
+            <div class="service-item">
+                <h4>Content</h4>
+                <p>Create and strategize content to spearhead your climb in organic search rankings.</p>
+            </div>
+            <div class="service-item">
+                <h4>Local Optimization</h4>
+                <p>Empower your local presence with optimization best practices for boosted conversion and revenue.</p>
+            </div>
+            <div class="service-item">
+                <h4>Link Building and Outreach</h4>
+                <p>Enhance brand visibility and secure inbound links with targeted outreach programs.</p>
+            </div>
+        </div>
+        <div class="service-labels">
+            <div>Local and International</div>
+            <div>On-page Optimization</div>
+            <div>Off-page Optimization</div>
+            <div>Video Optimization</div>
+            <div>Audio Optimization</div>
+        </div>
+    </section>
+    
+    <section id="process" class="section process">
+        <div class="process-left">
+            <h3>How We Deliver Optimization Services</h3>
+            <p>Our optimization expert, with experience at leading companies, develops and deploys tailored solutions to meet your business needs and unique industry demands for sustainable results and long-term success.</p>
+            <div class="step">
+                <div class="step-number">1</div>
+                <div class="step-content">
+                    <h4>Discover</h4>
+                    <p>A leader from our team works with you to understand your business challenges, pain points, and strategic goals to uncover new opportunities and identify the options to reach your objectives.</p>
+                </div>
+            </div>
+            <div class="step-arrow" style="--index: 1;">↓</div>
+            <div class="step">
+                <div class="step-number">2</div>
+                <div class="step-content">
+                    <h4>Define</h4>
+                    <p>TowMaps leaders collaborate with your team to define your specific service needs, evaluating viable options and aligning requirements with your strategy goals to define the best solution.</p>
+                </div>
+            </div>
+            <div class="step-arrow" style="--index: 2;">↓</div>
+            <div class="step">
+                <div class="step-number">3</div>
+                <div class="step-content">
+                    <h4>Develop</h4>
+                    <p>Once your service is defined and you have your talent or team on board, they will create your unique project timeline, process, and first drafts, whether it's optimizing your profile or defining your comprehensive strategy.</p>
+                </div>
+            </div>
+            <div class="step-arrow" style="--index: 3;">↓</div>
+            <div class="step">
+                <div class="step-number">4</div>
+                <div class="step-content">
+                    <h4>Deploy</h4>
+                    <p>Partnering with you, TowMaps will get to work, tracking quality.</p>
+                </div>
+            </div>
+        </div>
+        <div class="process-right">
+            <img src="https://via.placeholder.com/400x300?text=Your+Photo+Here" alt="Ali Mehdi Photo">
+            <h4>Ali Mehdi</h4>
+            <p>Founder & Optimization Specialist</p>
+            <p>Hi, I'm Ali Mehdi, a 20-year-old based in the GTA with a passion for helping local businesses thrive online. I started diving into digital optimization at 16, teaching myself the ins and outs through hands-on projects with small companies around Toronto. Over the past four years, I've focused on tow truck businesses, helping dozens improve their local search presence and attract more customers using ethical, effective approaches. I'm all about delivering real, measurable results without overpromising – just straightforward strategies that work for the long term. My goal is to empower entrepreneurs like you to grow without the guesswork.</p>
+        </div>
+    </section>
+    
+    <section id="clients" class="section clients">
+        <h3>Our Clients Include Top Companies</h3>
+        <p>Having worked with leading global companies, our service brings valuable insights and expertise to deliver world-class outcomes.</p>
+        <div class="client-logos">
+            <div class="client-logo">AAA</div>
+            <div class="client-logo">CAA</div>
+            <div class="client-logo">Pep Boys</div>
+            <div class="client-logo">AutoZone</div>
+            <div class="client-logo">Michelin</div>
+            <div class="client-logo">Bridgestone</div>
+            <div class="client-logo">Jiffy Lube</div>
+            <div class="client-logo">Goodyear</div>
+            <div class="client-logo">Firestone</div>
+            <div class="client-logo">Towing.com</div>
+            <div class="client-logo">Uber Roadside</div>
+            <div class="client-logo">Allstate</div>
+            <div class="client-logo">Geico</div>
+            <div class="client-logo">Progressive</div>
+            <div class="client-logo">State Farm</div>
+        </div>
+    </section>
+    
+    <section id="certifications" class="section certifications">
+        <h3>Our Certifications & Trusted Partners</h3>
+        <div class="cert-grid">
+            <div class="cert-item">
+                <img src="https://img.icons8.com/color/96/000000/certificate.png" alt="Google Maps Certified">
+                <p>Google Maps Certified Optimizer</p>
+            </div>
+            <div class="cert-item">
+                <img src="https://img.icons8.com/color/96/000000/bbb.png" alt="BBB Accredited">
+                <p>BBB Accredited Business</p>
+            </div>
+            <div class="cert-item">
+                <img src="https://img.icons8.com/color/96/000000/handshake.png" alt="Trusted by AAA">
+                <p>Trusted by CAA Network</p>
+            </div>
+            <div class="cert-item">
+                <img src="https://img.icons8.com/color/96/000000/line-chart.png" alt="Local SEO Guild">
+                <p>Local SEO Guild Member</p>
+            </div>
+            <div class="cert-item">
+                <img src="https://img.icons8.com/color/96/000000/shield.png" alt="Verified by Towing Association">
+                <p>Verified by Towing Association of Canada</p>
+            </div>
+        </div>
+    </section>
+    
+    <section id="testimonials" class="section testimonials">
+        <h3>What Our Clients Say</h3>
+        <div class="review">
+            <div class="review-placeholder">Add Logo Here</div>
+            <div class="review-content">
+                <h4>"Game-Changer for Our Business!"</h4>
+                <p>"Since partnering with TowMaps.ca, our Google Maps ranking shot up from page 3 to the top spot in just weeks. More calls, more jobs – highly recommend!"</p>
+                <div class="author">- Mike Johnson, Owner, AAA Towing</div>
+            </div>
+        </div>
+        <div class="review">
+            <div class="review-placeholder">Add Logo Here</div>
+            <div class="review-content">
+                <h4>"Professional and Effective"</h4>
+                <p>"The team at TowMaps knows their stuff. Our visibility improved dramatically, and we've seen a 40% increase in inquiries. Worth every penny."</p>
+                <div class="author">- Sarah Lee, Manager, All City Towing</div>
+            </div>
+        </div>
+        <div class="review">
+            <div class="review-placeholder">Add Logo Here</div>
+            <div class="review-content">
+                <h4>"Reliable Service with Real Results"</h4>
+                <p>"We were skeptical at first, but the results speak for themselves. Top rankings and steady customer flow. Great support too!"</p>
+                <div class="author">- Tom Rivera, CEO, A1 Towing</div>
+            </div>
+        </div>
+        <div class="review">
+            <div class="review-placeholder">Add Logo Here</div>
+            <div class="review-content">
+                <h4>"Boosted Our Local Presence"</h4>
+                <p>"TowMaps.ca optimized our profile perfectly. We're now the first result for 'tow truck near me' in our area. Fantastic ROI."</p>
+                <div class="author">- Emily Carter, Operations Lead, Fast Tow</div>
+            </div>
+        </div>
+        <div class="review">
+            <div class="review-placeholder">Add Logo Here</div>
+            <div class="review-content">
+                <h4>"Expert Optimization"</h4>
+                <p>"Their strategies are top-notch. We've overtaken competitors and gained more business. Professional from start to finish."</p>
+                <div class="author">- David Wong, Founder, TowGuys</div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="faq" class="faq">
+        <h3>Frequently Asked Questions</h3>
+        <div class="faq-item">
+            <h4>What is Google Maps Optimization?</h4>
+            <p>Google Maps Optimization involves enhancing your business profile to improve visibility in local searches, helping attract more customers to your tow truck services.</p>
+        </div>
+        <div class="faq-item">
+            <h4>How long does it take to see results?</h4>
+            <p>Results can vary, but many clients see improvements in rankings and inquiries within 4-8 weeks, with full effects often visible in 3-6 months.</p>
+        </div>
+        <div class="faq-item">
+            <h4>What does the money-back guarantee cover?</h4>
+            <p>Our 100% money-back guarantee applies if there's no increase in business inquiries within 90 days of starting the service.</p>
+        </div>
+        <div class="faq-item">
+            <h4>Do you work with businesses outside the GTA?</h4>
+            <p>Yes, while based in the GTA, we optimize for tow truck businesses across Canada.</p>
+        </div>
+        <div class="faq-item">
+            <h4>How do I get started?</h4>
+            <p>Simply submit your details for a free consultation, and we'll discuss how to boost your Google Maps position.</p>
+        </div>
+    </section>
+    
+    <section id="contact" class="section form-section">
+        <div class="container">
+            <h3>Get Your Free Consultation</h3>
+            <p>Submit your details and let's boost your Google Maps position in the GTA and beyond.</p>
+            <form id="contactForm">
+                <label for="business">Business Name</label>
+                <input type="text" id="business" required>
+                <label for="contactName">Contact Name</label>
+                <input type="text" id="contactName" required>
+                <label for="email">Email</label>
+                <input type="email" id="email" required>
+                <label for="phone">Phone</label>
+                <input type="tel" id="phone" required>
+                <label for="address">Address (Optional)</label>
+                <textarea id="address" rows="3"></textarea>
+                <label for="website">Website (Optional)</label>
+                <input type="url" id="website">
+                <label for="notes">Notes</label>
+                <textarea id="notes" rows="4"></textarea>
+                <button type="submit">Submit Now</button>
+            </form>
+        </div>
+    </section>
+    
+    <footer>
+        &copy; 2025 TowMaps.ca. All rights reserved. | Privacy Policy | Terms of Service
+    </footer>
+    
+    <div id="cookie-banner">
+        <p>We use cookies to improve your experience on our site. By continuing, you agree to our use of cookies.</p>
+        <button onclick="document.getElementById('cookie-banner').style.display='none';">Accept</button>
+    </div>
+    
+    <script>
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const business = document.getElementById('business').value;
+            const contactName = document.getElementById('contactName').value;
+            const email = document.getElementById('email').value;
+            const phone = document.getElementById('phone').value;
+            const address = document.getElementById('address').value;
+            const website = document.getElementById('website').value;
+            const notes = document.getElementById('notes').value;
+            const body = `Business: ${business}%0AContact: ${contactName}%0AEmail: ${email}%0APhone: ${phone}%0AAddress: ${address}%0AWebsite: ${website}%0ANotes: ${notes}`;
+            window.location.href = 'mailto:your.email@example.com?subject=Tow Truck Business Submission&body=' + body; // Replace with your actual email
+        });
+
+        // Animation for arrows
+        const processSection = document.getElementById('process');
+        const arrows = processSection.querySelectorAll('.step-arrow');
+
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    arrows.forEach(arrow => arrow.classList.add('visible'));
+                }
+            });
+        }, { threshold: 0.5 });
+
+        observer.observe(processSection);
+    </script>
+</body>
+</html>
